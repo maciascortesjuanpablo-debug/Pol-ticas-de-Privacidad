@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClubApp | Políticas de Privacidad y Términos de Uso</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                        slate: {
+                            850: '#1e293b',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos de impresión limpios */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+            }
+            .print-full-width {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .print-break {
+                page-break-before: always;
+            }
+        }
+        /* Ajuste de desplazamiento para anclas considerando el header sticky */
+        section[id], article[id] {
+            scroll-margin-top: 6rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+    <!-- Notificación Toast para copiar correo -->
+    <div id="toast-notification" role="alert" aria-live="polite" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none no-print">
+        <div class="bg-slate-900 text-white px-4 py-3 rounded-xl shadow-lg flex items-center gap-3 border border-slate-700">
+            <div class="bg-emerald-500/20 text-emerald-400 p-1.5 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <div>
+                <p class="text-sm font-semibold">¡Correo copiado!</p>
+                <p class="text-xs text-slate-300">clubapp03@gmail.com listo para pegar</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra Superior Sticky -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+            <!-- Logo / Marca -->
+            <a href="#top" class="flex items-center gap-2.5 group focus:outline-none">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 flex items-center justify-center text-white shadow-sm group-hover:shadow transition-all">
+                    <!-- Icono Deportivo / Trofeo-Escudo -->
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight text-slate-900 block leading-none">ClubApp</span>
+                    <span class="text-[11px] font-medium text-emerald-700 tracking-wide uppercase">Centro Legal</span>
+                </div>
+            </a>
+
+            <!-- Navegación rápida entre documentos (Desktop y Tablet) -->
+            <nav aria-label="Documentos principales" class="hidden md:flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200/60">
+                <a href="#politica-privacidad" id="nav-btn-privacidad" class="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all bg-white text-emerald-700 shadow-sm">
+                    Política de Privacidad
+                </a>
+                <a href="#terminos-condiciones" id="nav-btn-terminos" class="px-4 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 transition-all">
+                    Términos y Condiciones
+                </a>
+            </nav>
+
+            <!-- Botones de Acción -->
+            <div class="flex items-center gap-2">
+                <button onclick="copyEmail()" type="button" title="Copiar correo clubapp03@gmail.com" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200/80 transition-colors cursor-pointer">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                    </svg>
+                    <span class="hidden sm:inline">Copiar correo</span>
+                    <span class="sm:hidden">Correo</span>
+                </button>
+
+                <button onclick="window.print()" type="button" title="Imprimir o guardar como PDF" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-medium bg-slate-900 text-white hover:bg-slate-800 transition-colors shadow-sm cursor-pointer">
+                    <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+                    </svg>
+                    <span class="hidden sm:inline">Imprimir / PDF</span>
+                    <span class="sm:hidden">PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Encabezado Principal -->
+    <div id="top" class="bg-gradient-to-b from-slate-900 via-slate-900 to-slate-850 text-white border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-medium mb-5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Vigente desde: 18 de noviembre de 2026</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4">
+                    Centro Legal y de Privacidad de <span class="text-emerald-400">ClubApp</span>
+                </h1>
+                <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8">
+                    Conoce de forma clara y transparente cómo protegemos tus datos personales y cuáles son las reglas de uso de nuestra plataforma deportiva.
+                </p>
+
+                <!-- Botones de acceso directo (especialmente útiles en móvil) -->
+                <div class="flex flex-wrap gap-3 no-print">
+                    <a href="#politica-privacidad" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all shadow-md shadow-emerald-950/50">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        Política de Tratamiento de Datos
+                    </a>
+                    <a href="#terminos-condiciones" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 font-semibold text-sm transition-all">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Términos y Condiciones de Uso
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor Principal con Sidebar Sticky + Contenido -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        
+        <!-- Selector de índice rápido para Móvil y Tablet -->
+        <div class="lg:hidden mb-8 no-print">
+            <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
+                <label for="mobile-toc-select" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                    Navegación rápida por secciones
+                </label>
+                <div class="relative">
+                    <select id="mobile-toc-select" onchange="navigateToSection(this.value)" class="w-full appearance-none bg-slate-50 border border-slate-300 text-slate-800 text-sm font-medium rounded-xl px-4 py-3 pr-10 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+                        <optgroup label="POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES">
+                            <option value="#politica-privacidad">Inicio: Política de Privacidad</option>
+                            <option value="#priv-1">1. Responsable del tratamiento</option>
+                            <option value="#priv-2">2. Datos que recolectamos</option>
+                            <option value="#priv-3">3. Finalidades</option>
+                            <option value="#priv-4">4. Autorización</option>
+                            <option value="#priv-5">5. Datos de niños, niñas y adolescentes</option>
+                            <option value="#priv-6">6. Transmisión y transferencia de datos</option>
+                            <option value="#priv-7">7. Derechos del titular</option>
+                            <option value="#priv-8">8. Cómo ejercer sus derechos</option>
+                            <option value="#priv-9">9. Eliminación de la cuenta</option>
+                            <option value="#priv-10">10. Seguridad</option>
+                            <option value="#priv-11">11. Conservación</option>
+                            <option value="#priv-12">12. Cambios a esta política</option>
+                        </optgroup>
+                        <optgroup label="TÉRMINOS Y CONDICIONES DE USO">
+                            <option value="#terminos-condiciones">Inicio: Términos y Condiciones</option>
+                            <option value="#term-1">1. Aceptación</option>
+                            <option value="#term-2">2. Qué es ClubApp</option>
+                            <option value="#term-3">3. Cuenta y edad</option>
+                            <option value="#term-4">4. Uso aceptable</option>
+                            <option value="#term-5">5. Contenido del usuario</option>
+                            <option value="#term-6">6. Roles y responsabilidad de organizadores</option>
+                            <option value="#term-7">7. Asistente de IA</option>
+                            <option value="#term-8">8. Suspensión y terminación</option>
+                            <option value="#term-9">9. Limitación de responsabilidad</option>
+                            <option value="#term-10">10. Propiedad intelectual</option>
+                            <option value="#term-11">11. Cambios</option>
+                            <option value="#term-12">12. Ley aplicable y contacto</option>
+                        </optgroup>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+            
+            <!-- Tabla de Contenidos Lateral Sticky (Escritorio) -->
+            <aside class="hidden lg:block w-80 shrink-0 sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto pr-2 no-print">
+                <div class="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-sm space-y-6">
+                    <!-- Índice Documento 1 -->
+                    <div>
+                        <a href="#politica-privacidad" class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-emerald-700 mb-3 hover:text-emerald-800">
+                            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                            Política de Privacidad
+                        </a>
+                        <ul class="space-y-1.5 text-xs text-slate-600 border-l-2 border-slate-100 ml-1 pl-3">
+                            <li><a href="#priv-1" class="toc-link block py-1 hover:text-emerald-700 transition-colors">1. Responsable del tratamiento</a></li>
+                            <li><a href="#priv-2" class="toc-link block py-1 hover:text-emerald-700 transition-colors">2. Datos que recolectamos</a></li>
+                            <li><a href="#priv-3" class="toc-link block py-1 hover:text-emerald-700 transition-colors">3. Finalidades</a></li>
+                            <li><a href="#priv-4" class="toc-link block py-1 hover:text-emerald-700 transition-colors">4. Autorización</a></li>
+                            <li><a href="#priv-5" class="toc-link block py-1 hover:text-emerald-700 transition-colors">5. Datos de niños, niñas y adolescentes</a></li>
+                            <li><a href="#priv-6" class="toc-link block py-1 hover:text-emerald-700 transition-colors">6. Transmisión y transferencia</a></li>
+                            <li><a href="#priv-7" class="toc-link block py-1 hover:text-emerald-700 transition-colors">7. Derechos del titular</a></li>
+                            <li><a href="#priv-8" class="toc-link block py-1 hover:text-emerald-700 transition-colors">8. Cómo ejercer sus derechos</a></li>
+                            <li><a href="#priv-9" class="toc-link block py-1 hover:text-emerald-700 transition-colors">9. Eliminación de la cuenta</a></li>
+                            <li><a href="#priv-10" class="toc-link block py-1 hover:text-emerald-700 transition-colors">10. Seguridad</a></li>
+                            <li><a href="#priv-11" class="toc-link block py-1 hover:text-emerald-700 transition-colors">11. Conservación</a></li>
+                            <li><a href="#priv-12" class="toc-link block py-1 hover:text-emerald-700 transition-colors">12. Cambios a esta política</a></li>
+                        </ul>
+                    </div>
+
+                    <hr class="border-slate-100">
+
+                    <!-- Índice Documento 2 -->
+                    <div>
+                        <a href="#terminos-condiciones" class="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-slate-800 mb-3 hover:text-emerald-700">
+                            <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                            Términos y Condiciones
+                        </a>
+                        <ul class="space-y-1.5 text-xs text-slate-600 border-l-2 border-slate-100 ml-1 pl-3">
+                            <li><a href="#term-1" class="toc-link block py-1 hover:text-emerald-700 transition-colors">1. Aceptación</a></li>
+                            <li><a href="#term-2" class="toc-link block py-1 hover:text-emerald-700 transition-colors">2. Qué es ClubApp</a></li>
+                            <li><a href="#term-3" class="toc-link block py-1 hover:text-emerald-700 transition-colors">3. Cuenta y edad</a></li>
+                            <li><a href="#term-4" class="toc-link block py-1 hover:text-emerald-700 transition-colors">4. Uso aceptable</a></li>
+                            <li><a href="#term-5" class="toc-link block py-1 hover:text-emerald-700 transition-colors">5. Contenido del usuario</a></li>
+                            <li><a href="#term-6" class="toc-link block py-1 hover:text-emerald-700 transition-colors">6. Roles y responsabilidad</a></li>
+                            <li><a href="#term-7" class="toc-link block py-1 hover:text-emerald-700 transition-colors">7. Asistente de IA</a></li>
+                            <li><a href="#term-8" class="toc-link block py-1 hover:text-emerald-700 transition-colors">8. Suspensión y terminación</a></li>
+                            <li><a href="#term-9" class="toc-link block py-1 hover:text-emerald-700 transition-colors">9. Limitación de responsabilidad</a></li>
+                            <li><a href="#term-10" class="toc-link block py-1 hover:text-emerald-700 transition-colors">10. Propiedad intelectual</a></li>
+                            <li><a href="#term-11" class="toc-link block py-1 hover:text-emerald-700 transition-colors">11. Cambios</a></li>
+                            <li><a href="#term-12" class="toc-link block py-1 hover:text-emerald-700 transition-colors">12. Ley aplicable y contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Tarjeta rápida de contacto en sidebar -->
+                    <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200/80">
+                        <p class="text-xs font-semibold text-slate-800 mb-1">¿Tienes dudas o solicitudes?</p>
+                        <p class="text-[11px] text-slate-500 mb-2.5">Escríbenos directamente a nuestro correo oficial:</p>
+                        <button onclick="copyEmail()" type="button" class="w-full py-2 px-3 rounded-lg bg-white hover:bg-emerald-50 text-emerald-700 border border-slate-200 hover:border-emerald-300 text-xs font-semibold flex items-center justify-center gap-1.5 transition-all cursor-pointer">
+                            <span>clubapp03@gmail.com</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Columna Principal de Documentos -->
+            <div class="flex-1 min-w-0 space-y-12 print-full-width">
+
+                <!-- ========================================================= -->
+                <!-- DOCUMENTO 1: POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES  -->
+                <!-- ========================================================= -->
+                <article id="politica-privacidad" class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden print-full-width">
+                    <!-- Cabecera del Documento 1 -->
+                    <div class="bg-gradient-to-r from-emerald-50 to-teal-50/60 border-b border-emerald-100 px-6 py-8 sm:px-10">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider bg-emerald-600 text-white">
+                                Documento 1 • Privacidad
+                            </span>
+                            <span class="text-xs font-semibold text-emerald-800 bg-white/80 px-3 py-1 rounded-lg border border-emerald-200/70">
+                                Vigente desde: 18 de noviembre de 2026
+                            </span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                            POLÍTICA DE TRATAMIENTO DE DATOS PERSONALES Y PRIVACIDAD
+                        </h2>
+                        <p class="text-base font-bold text-emerald-700 mt-1">ClubApp</p>
+                    </div>
+
+                    <!-- Cuerpo del Documento 1 -->
+                    <div class="px-6 py-8 sm:px-10 sm:py-10 space-y-8 text-slate-700 leading-relaxed text-[15px] sm:text-base">
+                        
+                        <!-- 1. RESPONSABLE DEL TRATAMIENTO -->
+                        <section id="priv-1" class="space-y-4">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">1</span>
+                                RESPONSABLE DEL TRATAMIENTO
+                            </h3>
+                            <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Nombre</span>
+                                    <span class="font-semibold text-slate-900">Juan Pablo Macias Cortes</span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Aplicación</span>
+                                    <span class="font-semibold text-slate-900">ClubApp</span>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Correo</span>
+                                    <button onclick="copyEmail()" type="button" class="font-semibold text-emerald-700 hover:underline inline-flex items-center gap-1 cursor-pointer">
+                                        clubapp03@gmail.com
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    </button>
+                                </div>
+                                <div>
+                                    <span class="block text-xs font-semibold uppercase tracking-wider text-slate-400">Ciudad</span>
+                                    <span class="font-semibold text-slate-900">[Ciudad, Huila, Colombia]</span>
+                                </div>
+                            </div>
+                            <p>
+                                Esta política se expide conforme a la Ley 1581 de 2012, el Decreto 1377 de 2013 (compilado en el Decreto 1074 de 2015) y demás normas que los modifiquen.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 2. DATOS QUE RECOLECTAMOS -->
+                        <section id="priv-2" class="space-y-4">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">2</span>
+                                DATOS QUE RECOLECTAMOS
+                            </h3>
+                            <ul class="space-y-2.5 pl-1">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span><strong class="text-slate-900">Identificación y contacto:</strong> nombre, apellidos, correo electrónico, número de celular, fecha de nacimiento, departamento o ciudad.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span><strong class="text-slate-900">Perfil deportivo:</strong> rol (jugador, entrenador, organizador, árbitro), posición, país, tipo y nivel de juego, distinciones, estadísticas de partidos (goles, asistencias, tarjetas, minutos).</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span><strong class="text-slate-900">Imagen:</strong> fotografía de perfil, que usted sube voluntariamente.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span><strong class="text-slate-900">Datos de uso y técnicos:</strong> registros de acceso y errores necesarios para el funcionamiento y la seguridad.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span>Contenido que usted escribe en el asistente de IA.</span>
+                                </li>
+                            </ul>
+                            <div class="bg-emerald-50/70 border-l-4 border-emerald-600 p-4 rounded-r-xl text-slate-800 text-sm sm:text-[15px]">
+                                ClubApp no solicita datos de salud, orientación sexual, creencias religiosas ni afiliación política. La fotografía se usa solo para mostrar su perfil y no para identificarlo biométricamente.
+                            </div>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 3. FINALIDADES -->
+                        <section id="priv-3" class="space-y-4">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">3</span>
+                                FINALIDADES
+                            </h3>
+                            <ul class="space-y-2.5 pl-1">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span>Crear y administrar su cuenta y autenticarlo, incluida la verificación en dos pasos por correo electrónico.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span>Gestionar torneos, equipos, inscripciones, calendarios, partidos y estadísticas.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span>Mostrar su perfil deportivo a otros usuarios de la aplicación según su rol.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span>Enviar notificaciones y comunicaciones relacionadas con el servicio.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span>Brindar soporte técnico y atender solicitudes.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span>Garantizar la seguridad, prevenir fraudes y cumplir obligaciones legales.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span>Mejorar la aplicación mediante análisis de uso.</span>
+                                </li>
+                            </ul>
+                            <p class="font-semibold text-slate-900 bg-slate-100/80 px-4 py-3 rounded-xl inline-block">
+                                No vendemos sus datos personales a terceros.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 4. AUTORIZACIÓN -->
+                        <section id="priv-4" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">4</span>
+                                AUTORIZACIÓN
+                            </h3>
+                            <p>
+                                Al registrarse y marcar la casilla de aceptación, usted autoriza de forma previa, expresa e informada el tratamiento de sus datos para las finalidades descritas. Puede revocar la autorización en cualquier momento, salvo cuando exista un deber legal o contractual de conservar los datos.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 5. DATOS DE NIÑOS, NIÑAS Y ADOLESCENTES -->
+                        <section id="priv-5" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">5</span>
+                                DATOS DE NIÑOS, NIÑAS Y ADOLESCENTES
+                            </h3>
+                            <p>
+                                El tratamiento de datos de menores de 18 años se hace respetando su interés superior y sus derechos fundamentales. Para registrar a un menor se requiere autorización de su padre, madre o representante legal, quien podrá ejercer los derechos del titular. Solo se tratan los datos estrictamente necesarios para su participación deportiva. Si detectamos que un menor se registró sin autorización, eliminaremos su cuenta.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 6. TRANSMISIÓN Y TRANSFERENCIA DE DATOS -->
+                        <section id="priv-6" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">6</span>
+                                TRANSMISIÓN Y TRANSFERENCIA DE DATOS
+                            </h3>
+                            <p>
+                                Para operar la aplicación usamos proveedores que pueden estar fuera de Colombia: servicios de alojamiento del servidor y de base de datos (Render y Supabase) y el servicio de inteligencia artificial del asistente (Groq). Estos proveedores solo tratan los datos siguiendo nuestras instrucciones y con medidas de seguridad adecuadas. Solo entregaremos datos a autoridades cuando exista orden legal.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 7. DERECHOS DEL TITULAR -->
+                        <section id="priv-7" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">7</span>
+                                DERECHOS DEL TITULAR
+                            </h3>
+                            <p>Usted tiene derecho a:</p>
+                            <ul class="space-y-2 pl-2">
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-bold text-emerald-700">a)</span>
+                                    <span>Conocer, actualizar y rectificar sus datos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-bold text-emerald-700">b)</span>
+                                    <span>Solicitar prueba de la autorización otorgada.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-bold text-emerald-700">c)</span>
+                                    <span>Ser informado sobre el uso que se ha dado a sus datos.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-bold text-emerald-700">d)</span>
+                                    <span>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-bold text-emerald-700">e)</span>
+                                    <span>Revocar la autorización y solicitar la supresión de sus datos cuando no se respeten los principios y garantías legales.</span>
+                                </li>
+                                <li class="flex items-start gap-2.5">
+                                    <span class="font-bold text-emerald-700">f)</span>
+                                    <span>Acceder gratuitamente a sus datos personales.</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 8. CÓMO EJERCER SUS DERECHOS -->
+                        <section id="priv-8" class="space-y-4">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">8</span>
+                                CÓMO EJERCER SUS DERECHOS
+                            </h3>
+                            <p>
+                                Escriba a <a href="mailto:clubapp03@gmail.com?subject=Habeas%20Data" class="text-emerald-700 font-semibold underline hover:text-emerald-800">clubapp03@gmail.com</a> con el asunto “Habeas Data”, indicando su nombre completo, documento o correo registrado, y su solicitud. También puede editar sus datos o eliminar su cuenta desde la sección “Mi Perfil” de la aplicación.
+                            </p>
+                            <ul class="space-y-2.5 pl-1">
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span><strong class="text-slate-900">Consultas:</strong> se responden en máximo 10 días hábiles, prorrogables por 5 días hábiles más con aviso previo.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span><strong class="text-slate-900">Reclamos (rectificación, actualización, supresión o revocatoria):</strong> se responden en máximo 15 días hábiles, prorrogables por 8 días hábiles más con aviso previo.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 mt-2.5 shrink-0"></span>
+                                    <span>Antes de acudir a la SIC debe haber agotado este trámite con nosotros.</span>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 9. ELIMINACIÓN DE LA CUENTA -->
+                        <section id="priv-9" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">9</span>
+                                ELIMINACIÓN DE LA CUENTA
+                            </h3>
+                            <p>
+                                Al eliminar su cuenta, esta se desactiva y no podrá volver a usarla. Conservaremos únicamente la información que la ley nos obligue a mantener o que sea necesaria para resolver reclamaciones, y luego la suprimiremos.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 10. SEGURIDAD -->
+                        <section id="priv-10" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">10</span>
+                                SEGURIDAD
+                            </h3>
+                            <p>
+                                Aplicamos medidas técnicas y administrativas razonables para proteger sus datos contra acceso no autorizado, pérdida o alteración, como cifrado de contraseñas y comunicaciones seguras (HTTPS). Ningún sistema es 100% seguro, por lo que no podemos garantizar seguridad absoluta. Usted debe proteger su contraseña.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 11. CONSERVACIÓN -->
+                        <section id="priv-11" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">11</span>
+                                CONSERVACIÓN
+                            </h3>
+                            <p>
+                                Conservamos sus datos mientras su cuenta esté activa y el tiempo necesario para cumplir las finalidades y obligaciones legales.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 12. CAMBIOS A ESTA POLÍTICA -->
+                        <section id="priv-12" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-800 text-sm font-extrabold flex items-center justify-center shrink-0">12</span>
+                                CAMBIOS A ESTA POLÍTICA
+                            </h3>
+                            <p>
+                                Si hacemos cambios sustanciales, se los informaremos por la aplicación o el correo registrado. La versión vigente siempre estará disponible en “Ayuda y soporte”.
+                            </p>
+                        </section>
+
+                    </div>
+                </article>
+
+
+                <!-- ========================================================= -->
+                <!-- DOCUMENTO 2: TÉRMINOS Y CONDICIONES DE USO                -->
+                <!-- ========================================================= -->
+                <article id="terminos-condiciones" class="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden print-full-width print-break">
+                    <!-- Cabecera del Documento 2 -->
+                    <div class="bg-gradient-to-r from-slate-100 to-slate-50 border-b border-slate-200 px-6 py-8 sm:px-10">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider bg-slate-800 text-white">
+                                Documento 2 • Condiciones
+                            </span>
+                            <span class="text-xs font-semibold text-slate-700 bg-white px-3 py-1 rounded-lg border border-slate-200">
+                                Vigente desde: 18 de noviembre de 2026
+                            </span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                            TÉRMINOS Y CONDICIONES DE USO
+                        </h2>
+                        <p class="text-base font-bold text-emerald-700 mt-1">ClubApp</p>
+                    </div>
+
+                    <!-- Cuerpo del Documento 2 -->
+                    <div class="px-6 py-8 sm:px-10 sm:py-10 space-y-8 text-slate-700 leading-relaxed text-[15px] sm:text-base">
+                        
+                        <!-- 1. ACEPTACIÓN -->
+                        <section id="term-1" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">1</span>
+                                ACEPTACIÓN
+                            </h3>
+                            <p>
+                                Al crear una cuenta o usar ClubApp usted acepta estos términos y la Política de Tratamiento de Datos Personales. Si no está de acuerdo, no use la aplicación.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 2. QUÉ ES CLUBAPP -->
+                        <section id="term-2" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">2</span>
+                                QUÉ ES CLUBAPP
+                            </h3>
+                            <p>
+                                ClubApp es una aplicación para la gestión de torneos deportivos, equipos, partidos y estadísticas.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 3. CUENTA Y EDAD -->
+                        <section id="term-3" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">3</span>
+                                CUENTA Y EDAD
+                            </h3>
+                            <p>
+                                Debe suministrar información veraz y mantenerla actualizada. Es responsable de la confidencialidad de su contraseña y de la actividad de su cuenta. Los menores de 18 años solo pueden usar la aplicación con autorización de su padre, madre o representante legal.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 4. USO ACEPTABLE -->
+                        <section id="term-4" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">4</span>
+                                USO ACEPTABLE
+                            </h3>
+                            <p>
+                                Está prohibido: suplantar a otra persona, publicar contenido ilegal, ofensivo, discriminatorio o que vulnere derechos de terceros, subir imágenes sin tener derecho a hacerlo, intentar acceder sin autorización a cuentas o sistemas, alterar resultados o estadísticas de forma fraudulenta, y usar la aplicación con fines ilícitos.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 5. CONTENIDO DEL USUARIO -->
+                        <section id="term-5" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">5</span>
+                                CONTENIDO DEL USUARIO
+                            </h3>
+                            <p>
+                                Usted conserva los derechos sobre las fotos y datos que sube y nos otorga una licencia limitada para mostrarlos dentro de la aplicación con el fin de prestar el servicio. Usted responde por el contenido que publica.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 6. ROLES Y RESPONSABILIDAD DE ORGANIZADORES -->
+                        <section id="term-6" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">6</span>
+                                ROLES Y RESPONSABILIDAD DE ORGANIZADORES
+                            </h3>
+                            <p>
+                                Los organizadores, entrenadores y árbitros son responsables de la información y decisiones que registren (inscripciones, resultados, sanciones). ClubApp es una herramienta tecnológica y no organiza ni respalda los torneos de terceros.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 7. ASISTENTE DE IA -->
+                        <section id="term-7" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">7</span>
+                                ASISTENTE DE IA
+                            </h3>
+                            <p>
+                                El asistente de inteligencia artificial puede cometer errores. Sus respuestas son orientativas y no reemplazan el criterio de los organizadores ni las reglas oficiales de cada torneo. No escriba en él información sensible innecesaria.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 8. SUSPENSIÓN Y TERMINACIÓN -->
+                        <section id="term-8" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">8</span>
+                                SUSPENSIÓN Y TERMINACIÓN
+                            </h3>
+                            <p>
+                                Podemos suspender o eliminar cuentas que incumplan estos términos. Usted puede eliminar su cuenta en cualquier momento desde “Mi Perfil”.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 9. LIMITACIÓN DE RESPONSABILIDAD -->
+                        <section id="term-9" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">9</span>
+                                LIMITACIÓN DE RESPONSABILIDAD
+                            </h3>
+                            <p>
+                                La aplicación se ofrece “tal cual”, sin garantía de disponibilidad continua. En los límites permitidos por la ley, no respondemos por interrupciones, pérdida de datos por causas ajenas a nuestro control, ni por daños derivados de decisiones tomadas por otros usuarios. Esto no limita derechos que la ley colombiana no permita limitar.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 10. PROPIEDAD INTELECTUAL -->
+                        <section id="term-10" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">10</span>
+                                PROPIEDAD INTELECTUAL
+                            </h3>
+                            <p>
+                                El nombre, logo, diseño y código de ClubApp pertenecen a Juan Pablo Macias Cortes y Andres Felipe Triviño Bustos. No puede copiarlos ni usarlos sin autorización.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 11. CAMBIOS -->
+                        <section id="term-11" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">11</span>
+                                CAMBIOS
+                            </h3>
+                            <p>
+                                Podemos modificar estos términos y se lo informaremos. Seguir usando la aplicación implica aceptar los cambios.
+                            </p>
+                        </section>
+
+                        <hr class="border-slate-100">
+
+                        <!-- 12. LEY APLICABLE Y CONTACTO -->
+                        <section id="term-12" class="space-y-3">
+                            <h3 class="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                                <span class="w-7 h-7 rounded-lg bg-slate-200/80 text-slate-800 text-sm font-extrabold flex items-center justify-center shrink-0">12</span>
+                                LEY APLICABLE Y CONTACTO
+                            </h3>
+                            <p>
+                                Estos términos se rigen por las leyes de Colombia. Contacto: <a href="mailto:clubapp03@gmail.com" class="text-emerald-700 font-semibold underline hover:text-emerald-800">clubapp03@gmail.com</a>.
+                            </p>
+                        </section>
+
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Limpio -->
+    <footer class="bg-white border-t border-slate-200 mt-12 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3 text-center sm:text-left">
+                <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <p class="text-sm font-semibold text-slate-900">© 2026 ClubApp. Todos los derechos reservados.</p>
+                    <p class="text-xs text-slate-500">Huila, Colombia • Vigente desde: 18 de noviembre de 2026</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="mailto:clubapp03@gmail.com" class="text-sm font-medium text-emerald-700 hover:text-emerald-800 transition-colors">
+                    clubapp03@gmail.com
+                </a>
+                <a href="#top" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors">
+                    <span>Volver arriba</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lógica JavaScript -->
+    <script>
+        /**
+         * Copia el correo electrónico al portapapeles usando un elemento temporal
+         * para máxima compatibilidad en entornos iframe y navegadores móviles.
+         */
+        function copyEmail() {
+            const email = 'clubapp03@gmail.com';
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // Para dispositivos móviles
+
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error('Error al copiar el correo:', err);
+            }
+
+            document.body.removeChild(tempInput);
+        }
+
+        /**
+         * Muestra la notificación visual flotante ("¡Correo copiado!")
+         */
+        let toastTimeout;
+        function showToast() {
+            const toast = document.getElementById('toast-notification');
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        /**
+         * Navegación desde el menú desplegable móvil
+         */
+        function navigateToSection(hash) {
+            if (!hash) return;
+            const target = document.querySelector(hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        /**
+         * Resaltado dinámico de la tabla de contenidos y pestañas superiores al hacer scroll
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            const mobileSelect = document.getElementById('mobile-toc-select');
+            const navBtnPrivacidad = document.getElementById('nav-btn-privacidad');
+            const navBtnTerminos = document.getElementById('nav-btn-terminos');
+            const terminosArticle = document.getElementById('terminos-condiciones');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -65% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = '#' + entry.target.getAttribute('id');
+
+                        // Actualizar enlaces del sidebar en escritorio
+                        tocLinks.forEach(link => {
+                            if (link.getAttribute('href') === id) {
+                                link.classList.add('text-emerald-700', 'font-bold');
+                                link.classList.remove('text-slate-600');
+                            } else {
+                                link.classList.remove('text-emerald-700', 'font-bold');
+                                link.classList.add('text-slate-600');
+                            }
+                        });
+
+                        // Sincronizar select móvil
+                        if (mobileSelect && mobileSelect.value !== id) {
+                            mobileSelect.value = id;
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(sec => observer.observe(sec));
+
+            // Actualizar estado activo de las pestañas principales en el header
+            window.addEventListener('scroll', () => {
+                if (!terminosArticle || !navBtnPrivacidad || !navBtnTerminos) return;
+                const rect = terminosArticle.getBoundingClientRect();
+                if (rect.top <= 200) {
+                    // Estamos viendo Términos y Condiciones
+                    navBtnTerminos.className = 'px-4 py-1.5 rounded-lg text-sm font-semibold transition-all bg-white text-emerald-700 shadow-sm';
+                    navBtnPrivacidad.className = 'px-4 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 transition-all';
+                } else {
+                    // Estamos viendo Política de Privacidad
+                    navBtnPrivacidad.className = 'px-4 py-1.5 rounded-lg text-sm font-semibold transition-all bg-white text-emerald-700 shadow-sm';
+                    navBtnTerminos.className = 'px-4 py-1.5 rounded-lg text-sm font-medium text-slate-600 hover:text-slate-900 transition-all';
+                }
+            }, { passive: true });
+        });
+    </script>
+</body>
+</html>
